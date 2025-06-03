@@ -37,7 +37,7 @@ namespace SpaceShooter
             Vector2 step = transform.up * stepLength;
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up,stepLength);
-            
+
             // не забыть выключить в свойствах проекта, вкладка Physics2D иначе не заработает
             // disable queries hit triggers
             // disable queries start in collider

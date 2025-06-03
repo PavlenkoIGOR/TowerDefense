@@ -46,7 +46,13 @@ namespace SpaceShooter
         private void Update()
         {
             if (m_RefireTimer > 0)
+            {
                 m_RefireTimer -= Time.deltaTime;
+            }
+            else if (Mode == TurretMode.Auto)
+            {
+                Fire();
+            }
         }
 
         #endregion
@@ -64,6 +70,8 @@ namespace SpaceShooter
             if (m_TurretProperties == null)
                 return;
 
+            if (m_Ship)
+            {
             // кушаем энергию
             if (!m_Ship.DrawEnergy(m_TurretProperties.EnergyUsage))
                 return;
@@ -71,6 +79,8 @@ namespace SpaceShooter
             // кушаем патроны
             if (!m_Ship.DrawAmmo(m_TurretProperties.AmmoUsage))
                 return;
+            }
+
             
             // инстанцируем прожектайл который уже сам полетит.
             var projectile = Instantiate(m_TurretProperties.ProjectilePrefab.gameObject).GetComponent<Projectile>();
