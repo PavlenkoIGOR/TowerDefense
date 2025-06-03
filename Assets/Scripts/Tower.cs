@@ -24,6 +24,7 @@ namespace TD
         void Start()
         {
             _turrets = GetComponentsInChildren<Turret>();
+            //print($"{_turrets.Length}");
         }
 
         // Update is called once per frame
@@ -48,7 +49,7 @@ namespace TD
                 var enter = Physics2D.OverlapCircle(transform.position, m_Radius);
                 if (enter)
                 {
-                    _target = enter.transform.GetComponent<Destructible>();
+                    _target = enter.transform.root.GetComponent<Destructible>();
 
                 }
             }
