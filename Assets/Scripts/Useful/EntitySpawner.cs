@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TD;
 
 namespace SpaceShooter
 {
 
     public class EntitySpawner : MonoBehaviour
     {
-        [SerializeField] private AIPointPatrol _moveTarget;
+        [SerializeField] private Path _path;
         /// <summary>
         /// Ссылки на то что спавнить.
         /// </summary>
@@ -77,9 +78,9 @@ namespace SpaceShooter
 
                 e.transform.position = m_Area.RandomInsideZone;
 
-                if (e.TryGetComponent<AIController>(out var ai))
+                if (e.TryGetComponent<TD_PatrolController>(out var ai))
                 {
-                    ai.SetPatrolBehaviour(_moveTarget);
+                    ai.SetPath(_path);
                 }
             }
         }
