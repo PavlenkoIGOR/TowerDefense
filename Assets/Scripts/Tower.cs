@@ -32,10 +32,12 @@ namespace TD
         {
             if (_target)
             {
-                if (Vector2.Distance(_target.transform.position, transform.position) <= m_Radius)
+                var targetVector  = _target.transform.position - transform.position;
+                if (targetVector.magnitude <= m_Radius)
                 {
                     foreach (var turret in _turrets)
                     {
+                        turret.transform.up = targetVector;
                         turret.Fire();
                     }
                 }

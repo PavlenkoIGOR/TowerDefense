@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 6161900919688921649}
   - component: {fileID: 4365907343735821375}
   - component: {fileID: 3974525243958817528}
+  - component: {fileID: 1577710408933131490}
   m_Layer: 0
   m_Name: VisualModel
   m_TagString: Untagged
@@ -96,7 +97,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3543087561444211711}
@@ -178,6 +179,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1577710408933131490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278420087017022736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7116494c8b0496f48a27fc5e92a7c4fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rbSprite: {fileID: 4365907343735821375}
 --- !u!1 &6356622524763721820
 GameObject:
   m_ObjectHideFlags: 0

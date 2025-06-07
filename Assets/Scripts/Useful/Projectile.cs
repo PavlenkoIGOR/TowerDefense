@@ -93,6 +93,11 @@ namespace SpaceShooter
         {
             m_Parent = parent;
         }
+
+        public void SetTarget(Destructible target)
+        {
+
+        }
     }
 }
 
