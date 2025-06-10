@@ -10,20 +10,23 @@ public class TriangleMoveAlongASpline : MonoBehaviour
 
     void Start()
     {
-        print($"{_path.Spline.Count}");
-        _startPos = transform.position;
+        _startPos = _path.Spline.EvaluatePosition(0);
+        print($"_path.Spline.EvaluatePosition(0) {_path.Spline.EvaluatePosition(0)}");
+        print($"_startPos {_startPos}");
+        transform.position = _startPos;
     }
 
 
     void Update()
     {
-        progress += moveSpeed * Time.deltaTime / 10;
-        if (progress > 1f)
-        {
-            progress = 1f; // остановиться на конце, или сбросить для зацикливания
-        }
-
-        Vector3 position = _path.Spline.EvaluatePosition(progress);
-        transform.position = position;
+        print($"transformPos {transform.position}");
+        //print($"progressBefore {progress}");
+        //Vector3 position = _path.Spline.EvaluatePosition(progress);
+        //transform.position = position;
+        //progress += moveSpeed * Time.deltaTime / 10;
+        //if (progress > 1f)
+        //{
+        //    progress = 1f; // остановиться на конце, или сбросить для зацикливания
+        //}
     }
 }

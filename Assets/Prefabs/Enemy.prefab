@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 3070171564036357383}
   - component: {fileID: 2238596414572553752}
   - component: {fileID: 6247300747109259398}
+  - component: {fileID: 4539282181000619306}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -279,7 +280,7 @@ MonoBehaviour:
   m_Mass: 1
   m_Thrust: 1000
   m_Mobility: 1000
-  m_MaxLinearVelocity: 1
+  m_MaxLinearVelocity: 0.5
   m_MaxAngularVelocity: 360
 --- !u!114 &6247300747109259398
 MonoBehaviour:
@@ -301,3 +302,15 @@ MonoBehaviour:
   m_FindNewTargetTime: 0
   m_ShootDelay: 0
   m_EvadeRayLength: 0
+--- !u!114 &4539282181000619306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356622524763721820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cd24daf2647f24ca0c3b803b52260f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

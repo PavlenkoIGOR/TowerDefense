@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TD;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -99,6 +101,12 @@ namespace SpaceShooter
             Destroy(gameObject);
 
             m_EventOnDeath?.Invoke();
+        }
+
+        protected void Use(EnemyAsset enemyAss)
+        {
+            m_HitPoints = enemyAss.hp;
+            m_ScoreValue = enemyAss.score;
         }
 
         [SerializeField] private UnityEvent m_EventOnDeath;

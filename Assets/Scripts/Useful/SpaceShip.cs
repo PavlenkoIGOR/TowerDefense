@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using TD;
+using UnityEngine;
 
 namespace SpaceShooter
 {
@@ -98,69 +100,6 @@ namespace SpaceShooter
             m_Rigid.AddTorque(-m_Rigid.angularVelocity * (m_Mobility / m_MaxAngularVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
         }
 
-        /*
-        #region Offensive
-
-        private const int StartingAmmoCount = 10;
-
-        /// <summary>
-        /// Ссылки на турели корабля. Турели класть отдельными геймобъектами.
-        /// Каждая турель ест патроны и энергию.
-        /// </summary>
-        [SerializeField] private Turret[] m_Turrets;
-
-        /// <summary>
-        /// Максимум энергии на корабле.
-        /// </summary>
-        [SerializeField] private int m_MaxEnergy;
-
-        /// <summary>
-        /// Максимум патронов на корабле.
-        /// </summary>
-        [SerializeField] private int m_MaxAmmo;
-
-        /// <summary>
-        /// Скорость регенерации энергии в секунду.
-        /// </summary>
-        [SerializeField] private int m_EnergyRegenPerSecond;
-
-        /// <summary>
-        /// Кол-ыо энергии на корабле. float чтоб был смысл в свойстве реген в секунду.
-        /// </summary>
-        private float m_PrimaryEnergy;
-
-        public void AddEnergy(int e)
-        {
-            m_PrimaryEnergy = Mathf.Clamp(m_PrimaryEnergy + e, 0, m_MaxEnergy);
-        }
-
-        /// <summary>
-        /// Кол-во патронов.
-        /// </summary>
-        private int m_SecondaryAmmo;
-
-        public void AddAmmo(int ammo)
-        {
-            m_SecondaryAmmo = Mathf.Clamp(m_SecondaryAmmo + ammo, 0, m_MaxAmmo);
-        }
-
-        /// <summary>
-        /// Инициализация начальный свойств корабля.
-        /// </summary>
-        private void InitOffensive()
-        {
-            m_PrimaryEnergy = m_MaxEnergy;
-            m_SecondaryAmmo = StartingAmmoCount;
-        }
-
-        /// <summary>
-        /// Обновляем статы корабля. Можно воткнуть например автопочинку.
-        /// </summary>
-        private void UpdateEnergyRegen()
-        {
-            m_PrimaryEnergy += (float)m_EnergyRegenPerSecond * Time.fixedDeltaTime;
-        }
-        */
 
 
         /// <summary>
@@ -193,14 +132,10 @@ namespace SpaceShooter
             return;
         }
 
-        /*
-        #endregion
-
-        public void AssignWeapon(TurretProperties props)
+        public new void Use(EnemyAsset enemyAss)
         {
-            foreach (var v in m_Turrets)
-                v.AssignLoadout(props);
+            m_MaxLinearVelocity = enemyAss.moveSpeed;
+            base.Use(enemyAss);
         }
-        */
     }
 }
