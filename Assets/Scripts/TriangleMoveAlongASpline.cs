@@ -11,15 +11,15 @@ public class TriangleMoveAlongASpline : MonoBehaviour
     void Start()
     {
         _startPos = _path.Spline.EvaluatePosition(0);
-        print($"_path.Spline.EvaluatePosition(0) {_path.Spline.EvaluatePosition(0)}");
-        print($"_startPos {_startPos}");
+        //print($"_path.Spline.EvaluatePosition(0) {_path.Spline.EvaluatePosition(0)}");
+        //print($"_startPos {_startPos}");
         transform.position = _startPos;
     }
 
 
     void Update()
     {
-        print($"transformPos {transform.position}");
+        //print($"transformPos {transform.position}");
         //print($"progressBefore {progress}");
         //Vector3 position = _path.Spline.EvaluatePosition(progress);
         //transform.position = position;

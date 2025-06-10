@@ -799,6 +799,7 @@ MonoBehaviour:
   _enemyAssets:
   - {fileID: 11400000, guid: e64f61b4aff156c40bdca508468461b3, type: 2}
   - {fileID: 11400000, guid: e34b4d740f0fa6044bce3af82568dcb7, type: 2}
+  - {fileID: 11400000, guid: 32f3aadc22d8bdc4b84e30085a0ff8c7, type: 2}
 --- !u!1 &459125546
 GameObject:
   m_ObjectHideFlags: 0
