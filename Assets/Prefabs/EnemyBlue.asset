@@ -19,3 +19,4 @@ MonoBehaviour:
   hp: 2
   score: 2
   radius: 0.14
+  dmg: 1

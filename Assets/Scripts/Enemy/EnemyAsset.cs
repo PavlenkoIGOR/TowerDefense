@@ -15,5 +15,7 @@ namespace TD
         public int hp  = 1;
         public int score = 1;
         public float radius = 0.14f;
+        public int dmg = 1;
+        public int gold = 1;
     }
 }

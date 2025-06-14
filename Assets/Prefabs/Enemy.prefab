@@ -273,7 +273,19 @@ MonoBehaviour:
   m_HitPoints: 15
   m_EventOnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4539282181000619306}
+        m_TargetAssemblyTypeName: TD.Enemy, Assembly-CSharp
+        m_MethodName: GiveGoldForPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_ExplosionPrefab: {fileID: 0}
   m_TeamId: 0
   m_ScoreValue: 0
@@ -302,6 +314,21 @@ MonoBehaviour:
   m_FindNewTargetTime: 0
   m_ShootDelay: 0
   m_EvadeRayLength: 0
+  _onEndPath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4539282181000619306}
+        m_TargetAssemblyTypeName: TD.Enemy, Assembly-CSharp
+        m_MethodName: DamagePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4539282181000619306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,3 +341,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cd24daf2647f24ca0c3b803b52260f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dmg: 1
+  _gold: 1

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e226c2fe803e1c48b52e5a8e364a40c, type: 3}
-  m_Name: EnemyDamon
+  m_Name: EnemyDemon
   m_EditorClassIdentifier: 
   color: {r: 1, g: 1, b: 1, a: 1}
   spriteScale: {x: 3, y: 3}
@@ -19,3 +19,5 @@ MonoBehaviour:
   hp: 8
   score: 10
   radius: 0.14
+  dmg: 3
+  gold: 9

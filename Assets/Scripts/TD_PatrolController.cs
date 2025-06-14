@@ -1,6 +1,7 @@
 using UnityEngine;
 using SpaceShooter;
 using System;
+using UnityEngine.Events;
 
 namespace TD
 {
@@ -8,6 +9,8 @@ namespace TD
     {
         private Path _path;
         private int _pathIndex;
+
+        [SerializeField] private UnityEvent _onEndPath;
         public void SetPath(Path path)
         {
             _path = path;
@@ -24,6 +27,7 @@ namespace TD
             }
             else
             {
+                _onEndPath?.Invoke();
                 Destroy(gameObject);
             }
         }

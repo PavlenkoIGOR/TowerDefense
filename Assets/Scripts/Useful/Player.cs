@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 namespace SpaceShooter
@@ -21,7 +20,10 @@ namespace SpaceShooter
 
         private void Start()
         {
-            m_Ship.EventOnDeath.AddListener(OnShipDeath);
+            if (m_PlayerShipPrefab != null)
+            {
+                m_Ship.EventOnDeath.AddListener(OnShipDeath);
+            }
         }
 
         private void OnShipDeath()
@@ -45,7 +47,7 @@ namespace SpaceShooter
 
             m_Ship.EventOnDeath.AddListener(OnShipDeath);
         }
-            
+
 
         #region Score (current level only)
 
@@ -61,6 +63,20 @@ namespace SpaceShooter
         public void AddScore(int num)
         {
             Score += num;
+        }
+
+        internal void TakeDmg(int dmg)
+        {
+            m_NumLives -= dmg;
+            if (m_NumLives > 0)
+            {
+                LevelSequenceController.Instance.FinishCurrentLevel(false);
+            }
+        }
+
+        internal void GetGold(int gold)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

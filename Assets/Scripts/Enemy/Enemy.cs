@@ -8,6 +8,17 @@ namespace TD
     [RequireComponent(typeof(TD_PatrolController))]
     public class Enemy : MonoBehaviour
     {
+        [SerializeField] private int _dmg = 1;
+        [SerializeField] private int _gold = 1;
+        public void DamagePlayer()
+        {
+            Player.Instance.TakeDmg(_dmg);
+        }
+
+        public void GiveGoldForPlayer()
+        {
+            (Player.Instance as Player_TD).ChangeGold(_gold);
+        }
         public void Use(EnemyAsset enemyAss)
         {
             var sr = transform.Find("VisualModel").GetComponent<SpriteRenderer>();
@@ -19,6 +30,9 @@ namespace TD
             GetComponent<SpaceShip>().Use(enemyAss);
 
             GetComponentInChildren<CircleCollider2D>().radius = enemyAss.radius;
+
+            _dmg = enemyAss.dmg;
+            _gold = enemyAss.gold;
         }
     }
 
@@ -27,7 +41,7 @@ namespace TD
     {
         public override void OnInspectorGUI()
         {
-           GUILayout.Label("myCustomEditor");            
+            GUILayout.Label("myCustomEditor");
         }
     }
 }
