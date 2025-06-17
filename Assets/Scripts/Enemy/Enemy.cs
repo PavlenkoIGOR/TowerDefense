@@ -12,12 +12,12 @@ namespace TD
         [SerializeField] private int _gold = 1;
         public void DamagePlayer()
         {
-            Player.Instance.TakeDmg(_dmg);
+            Player_TD.Instance.ReduceLife(_dmg);
         }
 
         public void GiveGoldForPlayer()
         {
-            (Player.Instance as Player_TD).ChangeGold(_gold);
+            Player_TD.Instance.ChangeGold(_gold);
         }
         public void Use(EnemyAsset enemyAss)
         {

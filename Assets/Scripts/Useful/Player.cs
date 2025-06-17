@@ -54,6 +54,7 @@ namespace SpaceShooter
         public int Score { get; private set; }
 
         public int NumKills { get; private set; }
+        public int numLives { get { return m_NumLives; } }
 
         public void AddKill()
         {
@@ -65,7 +66,7 @@ namespace SpaceShooter
             Score += num;
         }
 
-        internal void TakeDmg(int dmg)
+        protected void TakeDmg(int dmg)
         {
             m_NumLives -= dmg;
             if (m_NumLives > 0)
