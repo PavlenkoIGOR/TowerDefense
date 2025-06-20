@@ -3,17 +3,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TowerBuyControl : MonoBehaviour
+public partial class TowerBuyControl : MonoBehaviour
 {
-    [System.Serializable]
-    public class TowerAsset
-    {        
-        public int gold = 15;
-        public Sprite towerGUI;
-    }
     [SerializeField]private TowerAsset _towerAsset;
     [SerializeField]private TMP_Text _towerText;
     [SerializeField] private Button _button;
+    [SerializeField] private Transform _buildSite;
+
+    public Transform buildSite { set { _buildSite = value; } }
+
     private void GoldStatusCheck(int gold)
     {
         if (gold >= _towerAsset.gold != _button.interactable)
@@ -22,14 +20,20 @@ public class TowerBuyControl : MonoBehaviour
             _towerText.color = _button.interactable ? Color.white : Color.red;
         }
     }
+
+    public void Buy()
+    {
+        Player_TD.Instance.TryBuild(_towerAsset, _buildSite);
+    }
     private void Awake()
     {
-        Player_TD.OnGoldUpdate += GoldStatusCheck;
+        
     }
     void Start()
     {
         _towerText.text = _towerAsset.gold.ToString();
         _button.GetComponent<Image>().sprite = _towerAsset.towerGUI;
+        Player_TD.GoldUpdateSubscribe(GoldStatusCheck);
     }
 
     void Update()

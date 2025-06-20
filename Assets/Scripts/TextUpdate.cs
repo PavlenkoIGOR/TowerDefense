@@ -10,16 +10,16 @@ public class TextUpdate : MonoBehaviour
     public UpdateSource updateSource;
 
     private TMP_Text _text;
-    void Awake()
+    void Start()
     {
         _text = GetComponent<TMP_Text>();
         switch (updateSource)
         {
             case UpdateSource.Gold:
-                Player_TD.OnGoldUpdate += UpdateText;
+                Player_TD.GoldUpdateSubscribe(UpdateText);
                 break;
             case UpdateSource.Lifes:
-                Player_TD.OnLifeUpdate += UpdateText;
+                Player_TD.LifeUpdateSubscribe(UpdateText);
                 break;
         }
         

@@ -1,6 +1,7 @@
 using SpaceShooter;
 using System;
 using UnityEngine;
+using UnityEngine.Splines;
 
 namespace TD
 {
@@ -8,21 +9,20 @@ namespace TD
     {
         [SerializeField] private int _gold = 10;
         [SerializeField] private int _lives = 100;
+        [SerializeField] private Tower _towerPref;
 
         public static new Player_TD Instance { get { return Player.Instance as Player_TD; } }
-        public static event Action<int> OnGoldUpdate;
-        public static event Action<int> OnLifeUpdate;
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        private static event Action<int> OnGoldUpdate;
+        public static void GoldUpdateSubscribe(Action<int> act)
         {
-            OnGoldUpdate(_gold);
-            OnLifeUpdate(_lives);
+            OnGoldUpdate += act;
+            act(Instance._gold);
         }
-
-        // Update is called once per frame
-        void Update()
+        private static event Action<int> OnLifeUpdate;
+        public static void LifeUpdateSubscribe(Action<int> act)
         {
-
+            OnLifeUpdate += act;
+            act(Instance._lives);
         }
 
         public void ChangeGold(int change)
@@ -33,9 +33,16 @@ namespace TD
 
         public void ReduceLife(int change)
         {
-            //_lifes += change;
             TakeDmg(change);
             OnLifeUpdate(numLives);
+        }
+
+        public void TryBuild(TowerAsset towerAsset, Transform buildSite)
+        {
+            ChangeGold(-towerAsset.gold);
+            var tower = Instantiate(_towerPref, buildSite.position, Quaternion.identity);
+            tower.GetComponentInChildren<SpriteRenderer>().sprite = towerAsset.sprite;
+            Destroy(buildSite.gameObject);
         }
     }
 }
