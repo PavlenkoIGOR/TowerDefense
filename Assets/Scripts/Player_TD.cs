@@ -6,7 +6,7 @@ namespace TD
 {
     public class Player_TD : Player
     {
-        [SerializeField] private int _gold = 100;
+        [SerializeField] private int _gold = 10;
         [SerializeField] private int _lives = 100;
 
         public static new Player_TD Instance { get { return Player.Instance as Player_TD; } }
