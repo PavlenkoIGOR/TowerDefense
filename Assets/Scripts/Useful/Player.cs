@@ -69,9 +69,10 @@ namespace SpaceShooter
         protected void TakeDmg(int dmg)
         {
             m_NumLives -= dmg;
-            if (m_NumLives > 0)
+            if (m_NumLives <= 0)
             {
-                LevelSequenceController.Instance.FinishCurrentLevel(false);
+                //LevelSequenceController.Instance.FinishCurrentLevel(false);
+                LevelSequenceController.Instance.RestartLevel();
             }
         }
 

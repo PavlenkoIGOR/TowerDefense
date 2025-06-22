@@ -6,12 +6,15 @@ using UnityEngine.UIElements;
 public class BuildSite : MonoBehaviour, IPointerDownHandler
 {
     public static event Action<Transform> OnClickEvent;
-    public void OnPointerDown(PointerEventData eventData)
+    public virtual void OnPointerDown(PointerEventData eventData)
     {
         OnClickEvent(transform.root);
         print("asd");
     }
-
+    public static void HideControls()
+    {
+        OnClickEvent(null);
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

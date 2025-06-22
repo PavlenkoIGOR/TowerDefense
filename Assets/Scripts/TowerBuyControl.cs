@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public partial class TowerBuyControl : MonoBehaviour
 {
-    [SerializeField]private TowerAsset _towerAsset;
-    [SerializeField]private TMP_Text _towerText;
+    [SerializeField] private TowerAsset _towerAsset;
+    [SerializeField] private TMP_Text _towerText;
     [SerializeField] private Button _button;
     [SerializeField] private Transform _buildSite;
 
-    public Transform buildSite { set { _buildSite = value; } }
+    public void SetBuildSite(Transform value)
+    {
+        _buildSite = value;
+    }
+
 
     private void GoldStatusCheck(int gold)
     {
@@ -24,10 +28,11 @@ public partial class TowerBuyControl : MonoBehaviour
     public void Buy()
     {
         Player_TD.Instance.TryBuild(_towerAsset, _buildSite);
+        BuildSite.HideControls();
     }
     private void Awake()
     {
-        
+
     }
     void Start()
     {
@@ -38,6 +43,6 @@ public partial class TowerBuyControl : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 }
