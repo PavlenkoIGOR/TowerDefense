@@ -9,6 +9,7 @@ public partial class TowerBuyControl : MonoBehaviour
     [SerializeField] private TMP_Text _towerText;
     [SerializeField] private Button _button;
     [SerializeField] private Transform _buildSite;
+    
 
     public void SetBuildSite(Transform value)
     {
@@ -27,7 +28,7 @@ public partial class TowerBuyControl : MonoBehaviour
 
     public void Buy()
     {
-        Player_TD.Instance.TryBuild(_towerAsset, _buildSite);
+        Player_TD.Instance.TryBuild(_towerAsset, _buildSite, _towerAsset.tower);
         BuildSite.HideControls();
     }
     private void Awake()

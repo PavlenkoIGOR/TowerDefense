@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 2774779932360354939}
   - component: {fileID: 1396424442684381319}
   m_Layer: 5
-  m_Name: TowerBuyControl
+  m_Name: TowerBuyControl_Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,7 +580,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7442837001867621767}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 7.7, y: 7.7, z: 7.7}
   m_ConstrainProportionsScale: 1
@@ -610,4 +610,4 @@ MonoBehaviour:
   _towerAsset: {fileID: 11400000, guid: f5520b542c57d764fa9c55d9e2558c74, type: 2}
   _towerText: {fileID: 7856128025188418156}
   _button: {fileID: 8077055070261760439}
-  _buildSite: {fileID: 0}
+  _buildSite: {fileID: 1566382807353426115, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}

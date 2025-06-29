@@ -45,8 +45,10 @@ namespace SpaceShooter
         public void RestartLevel()
         {
             //SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
-            var scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.buildIndex);
+            
+            
+            //var scene = SceneManager.GetActiveScene();
+            //SceneManager.LoadScene(scene.buildIndex);
         }
 
         /// <summary>

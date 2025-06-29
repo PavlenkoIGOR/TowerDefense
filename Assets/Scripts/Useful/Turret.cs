@@ -83,9 +83,11 @@ namespace SpaceShooter
 
             
             // инстанцируем прожектайл который уже сам полетит.
-            var projectile = Instantiate(m_TurretProperties.ProjectilePrefab.gameObject).GetComponent<Projectile>();
+            var projectile = Instantiate(m_TurretProperties.ProjectilePrefab).GetComponent<Projectile>();
             projectile.transform.position = transform.position;
             projectile.transform.up = transform.up;
+
+            print($"{m_TurretProperties.ProjectilePrefab.gameObject.name}");
 
             // метод выставления данных прожектайлу о том кто стрелял для избавления от попаданий в самого себя
             projectile.SetParentShooter(m_Ship);

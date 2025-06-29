@@ -9,7 +9,7 @@ namespace TD
     {
         [SerializeField] private int _gold = 10;
         [SerializeField] private int _lives = 100;
-        [SerializeField] private Tower _towerPref;
+        //[SerializeField] private Tower _towerPref;
 
         public static new Player_TD Instance { get { return Player.Instance as Player_TD; } }
         private static event Action<int> OnGoldUpdate;
@@ -37,10 +37,10 @@ namespace TD
             OnLifeUpdate(numLives);
         }
 
-        public void TryBuild(TowerAsset towerAsset, Transform buildSite)
+        public void TryBuild(TowerAsset towerAsset, Transform buildSite, Tower t)
         {
             ChangeGold(-towerAsset.gold);
-            var tower = Instantiate(_towerPref, buildSite.position, Quaternion.identity);
+            var tower = Instantiate(t, buildSite.position, Quaternion.identity);
             tower.GetComponentInChildren<SpriteRenderer>().sprite = towerAsset.sprite;
             Destroy(buildSite.gameObject);
         }

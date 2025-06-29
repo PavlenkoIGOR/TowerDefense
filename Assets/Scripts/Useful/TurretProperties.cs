@@ -26,8 +26,8 @@ namespace SpaceShooter
         /// <summary>
         /// Ссылка на префаб прожектайла который будет стрелять турель.
         /// </summary>
-        [SerializeField] private Projectile m_ProjectilePrefab;
-        public Projectile ProjectilePrefab => m_ProjectilePrefab;
+        [SerializeField] private GameObject m_ProjectilePrefab;
+        public GameObject ProjectilePrefab => m_ProjectilePrefab;
 
         /// <summary>
         /// Скорострельность турели. Меньше - лучше.
