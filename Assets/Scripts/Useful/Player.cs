@@ -10,6 +10,9 @@ namespace SpaceShooter
     {
 
         [SerializeField] private int m_NumLives;
+
+        public event Action OnPlayerDead;
+
         [SerializeField] private SpaceShip m_Ship;
         public SpaceShip ActiveShip => m_Ship;
 
@@ -71,8 +74,10 @@ namespace SpaceShooter
             m_NumLives -= dmg;
             if (m_NumLives <= 0)
             {
+                m_NumLives = 0;
+                OnPlayerDead?.Invoke();
+                //LevelController.Instance.EndLevel(false);
                 //LevelSequenceController.Instance.FinishCurrentLevel(false);
-                LevelSequenceController.Instance.RestartLevel();
             }
         }
 
