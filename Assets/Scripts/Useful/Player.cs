@@ -76,6 +76,7 @@ namespace SpaceShooter
             {
                 m_NumLives = 0;
                 OnPlayerDead?.Invoke();
+                print("numlives <= 0");
                 //LevelController.Instance.EndLevel(false);
                 //LevelSequenceController.Instance.FinishCurrentLevel(false);
             }

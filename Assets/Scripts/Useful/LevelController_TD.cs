@@ -7,15 +7,32 @@ public class LevelController_TD : LevelController
     private new void Start()
     {
         base.Start();
-        Player_TD.Instance.OnPlayerDead += () => 
+        Player_TD.Instance.OnPlayerDead += () =>
         {
             StopLvlActivity();
             LevelResultController.Instance.Show(false);
         };
+        m_EventLevelCompleted.AddListener(StopLvlActivity);
     }
 
     private void StopLvlActivity()
     {
-        print("lvl stop");
+        foreach (var enemy in FindObjectsByType<Enemy>(FindObjectsSortMode.None))
+        {
+            enemy.GetComponent<SpaceShip>().enabled = false;
+            enemy.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
+        }
+
+        DisableAll<Tower>();
+        DisableAll<Projectile>();
+        DisableAll<Spawner>();
+    }
+
+    void DisableAll<T>() where T : MonoBehaviour
+    {
+        foreach (var obj in FindObjectsByType<T>(FindObjectsSortMode.None))
+        {
+            obj.enabled = false;
+        }
     }
 }
