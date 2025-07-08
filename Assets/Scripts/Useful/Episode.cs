@@ -19,6 +19,7 @@ namespace SpaceShooter
         /// <summary>
         /// Список названий сцен. Последовательно.
         /// </summary>
+        [Tooltip("Здесь указать имя сцены как оно есть")]
         [SerializeField] private string[] m_Levels;
         public string[] Levels => m_Levels;
 
