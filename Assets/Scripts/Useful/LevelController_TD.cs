@@ -3,6 +3,8 @@ using SpaceShooter;
 using TD;
 public class LevelController_TD : LevelController
 {
+    public int levelScore => 1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private new void Start()
     {
@@ -12,7 +14,11 @@ public class LevelController_TD : LevelController
             StopLvlActivity();
             LevelResultController.Instance.Show(false);
         };
-        m_EventLevelCompleted.AddListener(StopLvlActivity);
+        m_EventLevelCompleted.AddListener(()=>
+        {
+            StopLvlActivity();
+            MapCompletion.SaveEpisodeResult(levelScore);
+        });
     }
 
     private void StopLvlActivity()
