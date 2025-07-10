@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class MapCompletion : MonoSingleton<MapCompletion>
 {
+    const string filename = "complition.dat";
     [SerializeField] private EpisodeScore[] _completionData;
 
     [Serializable]
-    private class EpisodeScore
+    public class EpisodeScore
     {
         public Episode episode;
         public int score;
     }
 
+    new void Awake()
+    {
+        base.Awake();
+        Saver<EpisodeScore[]>.TryLoad(filename, ref _completionData);
+    }
     public bool TryIndex(int id, out Episode ep, out int score)
     {
         if (id >= 0 && id < _completionData.Length)
@@ -42,16 +48,11 @@ public class MapCompletion : MonoSingleton<MapCompletion>
                 if (levelScore > item.score)
                 {
                     item.score = levelScore;
+                    Saver<EpisodeScore[]>.Save(filename, _completionData);
                 }
 
             }
         }
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
