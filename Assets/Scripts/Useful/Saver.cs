@@ -1,23 +1,18 @@
-using SpaceShooter;
 using System;
 using System.IO;
 using UnityEngine;
-using static MapCompletion;
 
 
 [Serializable]
 public class Saver<T>
 {
     public T data;
-    private static string Path(string fileName)
-    {
-        return $"{Application.persistentDataPath}/{fileName}";
-    }
+
     public static void TryLoad(string fileName, ref T completionData)
     {
-        if (File.Exists(Path(fileName)))
+        if (File.Exists(FileHandler.Path(fileName)))
         {
-            var data = File.ReadAllText(Path(fileName));
+            var data = File.ReadAllText(FileHandler.Path(fileName));
             Saver<T> saver = JsonUtility.FromJson<Saver<T>>(data);
             completionData = saver.data;
         }
@@ -32,7 +27,31 @@ public class Saver<T>
     {
         var wrapper = new Saver<T> { data = data };
         var dataString = JsonUtility.ToJson(wrapper);
-        File.WriteAllText(Path(filename), dataString);
+        File.WriteAllText(FileHandler.Path(filename), dataString);
     }
 
+
+
+
+}
+public static class FileHandler
+{
+    public static string Path(string fileName)
+    {
+        return $"{Application.persistentDataPath}/{fileName}";
+    }
+    public static void Reset(string filename)
+    {
+
+        var path = FileHandler.Path(filename);
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+
+    internal static bool HasFile(string fileName)
+    {
+        return File.Exists(Path(fileName)); 
+    }
 }

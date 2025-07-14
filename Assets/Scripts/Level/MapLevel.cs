@@ -19,7 +19,7 @@ public class MapLevel : MonoBehaviour
         }
         else
         {
-            throw new Exception();
+
         }
     }
     public void SetLeveldata(Episode ep, int score)

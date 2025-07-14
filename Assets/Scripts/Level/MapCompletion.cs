@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MapCompletion : MonoSingleton<MapCompletion>
 {
-    const string filename = "complition.dat";
+    public const string filename = "complition.dat";
+
+
     [SerializeField] private EpisodeScore[] _completionData;
 
     [Serializable]
@@ -60,4 +62,6 @@ public class MapCompletion : MonoSingleton<MapCompletion>
     {
 
     }
+
+
 }
