@@ -36,7 +36,14 @@ public class MapCompletion : MonoSingleton<MapCompletion>
 
     public static void SaveEpisodeResult(int levelScore)
     {
-        Instance.SaveResult(LevelSequenceController.Instance.CurrentEpisode, levelScore);
+        if (Instance)
+        {
+            Instance.SaveResult(LevelSequenceController.Instance.CurrentEpisode, levelScore);
+        }
+        else
+        {
+            print($"{levelScore}");
+        }
     }
 
 
