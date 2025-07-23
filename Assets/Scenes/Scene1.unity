@@ -609,7 +609,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 445619500}
-  - component: {fileID: 445619502}
   - component: {fileID: 445619501}
   m_Layer: 0
   m_Name: EnemyCamp
@@ -635,6 +634,7 @@ Transform:
   - {fileID: 394260621}
   - {fileID: 606653522}
   - {fileID: 1265953696}
+  - {fileID: 1785859675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &445619501
@@ -646,39 +646,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 445619498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 764958decc785c946b322a94abd6a285, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b25eb242f83df54ea9ee96158b4a262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _path: {fileID: 606653523}
-  m_Area: {fileID: 491649626}
-  m_SpawnMode: 1
-  m_NumSpawns: 2
-  m_RespawnTime: 3
+  _paths:
+  - {fileID: 1265953697}
+  - {fileID: 606653523}
   _enemyPrefab: {fileID: 4539282181000619306, guid: cda9782851aec1445b80089d3d0db5e2, type: 3}
-  _enemyAssets:
-  - {fileID: 11400000, guid: 6d1137769a789104f936606a6ef649b2, type: 2}
---- !u!114 &445619502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445619498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 764958decc785c946b322a94abd6a285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _path: {fileID: 1265953697}
-  m_Area: {fileID: 491649626}
-  m_SpawnMode: 1
-  m_NumSpawns: 2
-  m_RespawnTime: 3
-  _enemyPrefab: {fileID: 4539282181000619306, guid: cda9782851aec1445b80089d3d0db5e2, type: 3}
-  _enemyAssets:
-  - {fileID: 11400000, guid: e64f61b4aff156c40bdca508468461b3, type: 2}
-  - {fileID: 11400000, guid: e34b4d740f0fa6044bce3af82568dcb7, type: 2}
-  - {fileID: 11400000, guid: 32f3aadc22d8bdc4b84e30085a0ff8c7, type: 2}
+  _currentWave: {fileID: 1785859674}
 --- !u!1 &459125546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,7 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3ad74bda65c7a40b9fcaef11a24b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeLimit: 3
+  _timeLimit: 6
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,6 +1888,55 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 394260621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1785859673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1785859675}
+  - component: {fileID: 1785859674}
+  m_Layer: 0
+  m_Name: Wave1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1785859674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785859673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56270c2acaf314a4dabacbe7ffde954b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pathGroups:
+  - squads:
+    - asset: {fileID: 11400000, guid: e64f61b4aff156c40bdca508468461b3, type: 2}
+      count: 3
+  _prepareTime: 2
+--- !u!4 &1785859675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785859673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 445619500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885871720
 GameObject:
