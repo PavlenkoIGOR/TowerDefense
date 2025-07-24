@@ -27,7 +27,7 @@ public class EnemyWavesManager : MonoBehaviour
             {
                 for (int i = 0; i < squad.count; i++)
                 {
-                    var e = Instantiate<Enemy>(_enemyPrefab);
+                    var e = Instantiate<Enemy>(_enemyPrefab, _paths[squad.pathIndex].startArea.RandomInsideZone, Quaternion.identity);
                     e.Use(squad.asset);
                     e.GetComponent<TD_PatrolController>().SetPath(_paths[squad.pathIndex]);
 

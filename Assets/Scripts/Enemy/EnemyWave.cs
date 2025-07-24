@@ -14,7 +14,7 @@ public class EnemyWave : MonoBehaviour
     }
     [Serializable]
     private class PathGroup
-    { 
+    {
         public Squad[] squads;
     }
     [SerializeField] private PathGroup[] _pathGroups;
@@ -28,7 +28,14 @@ public class EnemyWave : MonoBehaviour
     }
     internal IEnumerable<(EnemyAsset, int, int)> EnumerateSquads()
     {
-        yield return (_pathGroups[0].squads[0].asset, _pathGroups[0].squads[0].count, 0);
+        for (int i = 0; i < _pathGroups.Length; i++)
+        {
+            foreach (var squad in _pathGroups[i].squads)
+            {
+                yield return (squad.asset, squad.count, i);
+            }
+        }
+
     }
 
     internal EnemyWave Next()
@@ -43,9 +50,16 @@ public class EnemyWave : MonoBehaviour
         OnWaveReady += spawnEnemies;
     }
 
+    [SerializeField] private EnemyWave _nextEnemyWave;
     internal EnemyWave PrepareNext(Action spawnEnemies)
     {
-        return null;
+        OnWaveReady -= spawnEnemies;
+        if (_nextEnemyWave)
+        {
+            _nextEnemyWave.Prepare(spawnEnemies);
+        }
+
+        return _nextEnemyWave;
     }
 
 
