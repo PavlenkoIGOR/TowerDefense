@@ -20,6 +20,8 @@ public class EnemyWave : MonoBehaviour
     [SerializeField] private PathGroup[] _pathGroups;
 
     [SerializeField] private float _prepareTime = 10.0f;
+
+    public static Action<float> OnWavePrepare;
     internal Action OnWaveReady;
 
     private void Awake()
@@ -45,6 +47,7 @@ public class EnemyWave : MonoBehaviour
 
     internal void Prepare(Action spawnEnemies)
     {
+        OnWavePrepare?.Invoke(_prepareTime);
         _prepareTime += Time.time;
         enabled = true;
         OnWaveReady += spawnEnemies;
@@ -62,7 +65,10 @@ public class EnemyWave : MonoBehaviour
         return _nextEnemyWave;
     }
 
-
+    public float GetRemainingTime()
+    {
+        return _prepareTime -  Time.time;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

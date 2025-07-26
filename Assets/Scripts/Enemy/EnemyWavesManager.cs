@@ -1,4 +1,5 @@
 
+using System;
 using TD;
 using UnityEngine;
 
@@ -40,5 +41,11 @@ public class EnemyWavesManager : MonoBehaviour
         }
 
         _currentWave = _currentWave.PrepareNext(SpawnEnemies);
+    }
+
+    internal void ForceNextWave()
+    {
+        Player_TD.Instance.ChangeGold((int)_currentWave.GetRemainingTime());
+        SpawnEnemies();
     }
 }
