@@ -8,7 +8,8 @@ public class EnemyWavesManager : MonoBehaviour
     [SerializeField] private TD.Path[] _paths;
     [SerializeField] private Enemy _enemyPrefab;
     [SerializeField] private EnemyWave _currentWave;
-
+    [SerializeField] private int _activeEnemyCount = 0;
+    public event Action OnAllWavesEnd;
 
     void Start()
     {
@@ -20,6 +21,14 @@ public class EnemyWavesManager : MonoBehaviour
 
     }
 
+    private void RecordEnemyDead()
+    {
+        if (--_activeEnemyCount == 0)
+        {
+            ForceNextWave();
+        }
+    }
+
     private void SpawnEnemies()
     {
         foreach ((EnemyAsset asset, int count, int pathIndex) squad in _currentWave.EnumerateSquads())
@@ -29,8 +38,10 @@ public class EnemyWavesManager : MonoBehaviour
                 for (int i = 0; i < squad.count; i++)
                 {
                     var e = Instantiate<Enemy>(_enemyPrefab, _paths[squad.pathIndex].startArea.RandomInsideZone, Quaternion.identity);
+                    e.OnEnd += RecordEnemyDead;
                     e.Use(squad.asset);
                     e.GetComponent<TD_PatrolController>().SetPath(_paths[squad.pathIndex]);
+                    _activeEnemyCount++;
 
                 }
             }
@@ -45,7 +56,18 @@ public class EnemyWavesManager : MonoBehaviour
 
     internal void ForceNextWave()
     {
-        Player_TD.Instance.ChangeGold((int)_currentWave.GetRemainingTime());
-        SpawnEnemies();
+        if (_currentWave)
+        {
+            Player_TD.Instance.ChangeGold((int)_currentWave.GetRemainingTime());
+            SpawnEnemies();
+        }
+        else
+        {
+            if (_activeEnemyCount == 0)
+            {
+                OnAllWavesEnd?.Invoke();
+            }
+
+        }
     }
 }

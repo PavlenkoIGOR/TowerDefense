@@ -46,6 +46,7 @@ public class LevelController_TD : LevelController
         DisableAll<Tower>();
         DisableAll<Projectile>();
         DisableAll<Spawner>();
+        DisableAll<NextWaveGUI>();
     }
 
     void DisableAll<T>() where T : MonoBehaviour

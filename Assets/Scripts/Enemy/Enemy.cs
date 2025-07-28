@@ -1,4 +1,5 @@
 using SpaceShooter;
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,8 +9,15 @@ namespace TD
     [RequireComponent(typeof(TD_PatrolController))]
     public class Enemy : MonoBehaviour
     {
+        internal event Action OnEnd;
         [SerializeField] private int _dmg = 1;
         [SerializeField] private int _gold = 1;
+
+        private void OnDestroy()
+        {
+            OnEnd();
+        }
+
         public void DamagePlayer()
         {
             Player_TD.Instance.ReduceLife(_dmg);

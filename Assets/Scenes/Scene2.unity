@@ -299,6 +299,7 @@ MonoBehaviour:
   - {fileID: 606653523}
   _enemyPrefab: {fileID: 4539282181000619306, guid: cda9782851aec1445b80089d3d0db5e2, type: 3}
   _currentWave: {fileID: 1716513933}
+  _activeEnemyCount: 0
 --- !u!1 &459125546
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +640,7 @@ GameObject:
   - component: {fileID: 891630507}
   - component: {fileID: 891630508}
   - component: {fileID: 891630509}
-  - component: {fileID: 891630511}
+  - component: {fileID: 891630510}
   m_Layer: 0
   m_Name: PlayerCamp
   m_TagString: Untagged
@@ -699,7 +700,7 @@ MonoBehaviour:
   m_EventLevelCompleted:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &891630511
+--- !u!114 &891630510
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -708,10 +709,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 891630506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3ad74bda65c7a40b9fcaef11a24b19, type: 3}
+  m_Script: {fileID: 11500000, guid: cbb5133cfbc1f3a488680e4140de22fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeLimit: 4
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1518,7 @@ MonoBehaviour:
     - asset: {fileID: 11400000, guid: e34b4d740f0fa6044bce3af82568dcb7, type: 2}
       count: 10
   _prepareTime: 2
+  _nextEnemyWave: {fileID: 0}
 --- !u!1 &1725077549
 GameObject:
   m_ObjectHideFlags: 0
