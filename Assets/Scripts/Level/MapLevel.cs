@@ -12,6 +12,9 @@ public class MapLevel : MonoBehaviour
     private Episode _episode; //
     [SerializeField] private RectTransform _resultPanel;
     [SerializeField] private Image[] _resultImgs;
+
+    public bool isComplete { get { return gameObject.activeSelf && _resultPanel.gameObject.activeSelf; } }
+
     public void LoadLevel()
     {
         if (_episode)
