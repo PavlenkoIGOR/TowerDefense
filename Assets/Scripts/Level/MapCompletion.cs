@@ -8,7 +8,7 @@ public class MapCompletion : MonoSingleton<MapCompletion>
 
 
     [SerializeField] private EpisodeScore[] _completionData;
-    [SerializeField] private int _totalScores;
+    private int _totalScores;
     public int totalScore { get { return _totalScores; } }
 
     [Serializable]
@@ -26,18 +26,6 @@ public class MapCompletion : MonoSingleton<MapCompletion>
         {
             _totalScores += episode.score;
         }
-    }
-    public bool TryIndex(int id, out Episode ep, out int score)
-    {
-        if (id >= 0 && id < _completionData.Length)
-        {
-            ep = _completionData[id].episode;
-            score = _completionData[id].score;
-            return true;
-        }
-        ep = null;
-        score = 0;
-        return false;
     }
 
     public static void SaveEpisodeResult(int levelScore)
@@ -70,11 +58,16 @@ public class MapCompletion : MonoSingleton<MapCompletion>
         }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public int GetEpisodeScore(Episode episode)
     {
-
+        foreach (var data in _completionData)
+        {
+            if (data.episode == episode)
+            {
+                return data.score;
+            }
+        }
+        return 0;
     }
-
-
 }

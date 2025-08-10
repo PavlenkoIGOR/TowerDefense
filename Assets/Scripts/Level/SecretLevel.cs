@@ -33,6 +33,8 @@ public class SecretLevel : MonoBehaviour
         else
         {
             _pointText.transform.parent.gameObject.SetActive(false);
+            GetComponent<MapLevel>().Initialize();
+
         }
 
     }

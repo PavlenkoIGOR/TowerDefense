@@ -8,14 +8,10 @@ public class LevelDisplayController : MonoBehaviour
     {
         var drawLevel = 0;
         var score = 1;
-        while (score != 0 && drawLevel < _levels.Length && MapCompletion.Instance.TryIndex(drawLevel, out var ep, out score)) 
+        while (score != 0 && drawLevel < _levels.Length) 
         {
-            _levels[++drawLevel].SetLeveldata(ep, score);
-
-            if (score == 0)
-            {
-                break;
-            }
+            _levels[drawLevel].Initialize();
+            drawLevel += 1;
         }
         for (int i = drawLevel; i < +_levels.Length; i++)
         {
@@ -23,7 +19,7 @@ public class LevelDisplayController : MonoBehaviour
         }
         for (int i = 0; i < _secretLevels.Length; i++)
         {
-            //_secretLevels[i].gameObject.SetActive(_secretLevels[i].RootIsActive);
+
             _secretLevels[i].TryActivate();
         }
 

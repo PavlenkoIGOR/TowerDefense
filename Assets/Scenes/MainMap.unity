@@ -188,7 +188,6 @@ MonoBehaviour:
     score: 0
   - episode: {fileID: 11400000, guid: 5be06eee3ea4b044ea9875727e4b3ccc, type: 2}
     score: 0
-  _totalScores: 0
 --- !u!114 &143083947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1200,6 +1199,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6747447597327266828, guid: b0fe0d75110ac5f4297c7adaa3329e32, type: 3}
+      propertyPath: _episode
+      value: 
+      objectReference: {fileID: 11400000, guid: 5fbd5e124c83f41468e2ccd886cfa5c1, type: 2}
     - target: {fileID: 7528458204427484235, guid: b0fe0d75110ac5f4297c7adaa3329e32, type: 3}
       propertyPath: m_Name
       value: SecretLevel_1
@@ -1237,6 +1240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level1
       objectReference: {fileID: 0}
+    - target: {fileID: 4497321494068534860, guid: b213a7be34e751e4c9828ea3b3a12929, type: 3}
+      propertyPath: _episode
+      value: 
+      objectReference: {fileID: 11400000, guid: f53100dbbf76b214ab6e6530a8578fbf, type: 2}
     - target: {fileID: 5146728448902469852, guid: b213a7be34e751e4c9828ea3b3a12929, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1487,6 +1494,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6747447597327266828, guid: b0fe0d75110ac5f4297c7adaa3329e32, type: 3}
+      propertyPath: _episode
+      value: 
+      objectReference: {fileID: 11400000, guid: 5be06eee3ea4b044ea9875727e4b3ccc, type: 2}
     - target: {fileID: 7528458204427484235, guid: b0fe0d75110ac5f4297c7adaa3329e32, type: 3}
       propertyPath: m_Name
       value: SecretLevel_2
