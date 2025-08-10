@@ -23,8 +23,8 @@ public class LevelDisplayController : MonoBehaviour
         }
         for (int i = 0; i < _secretLevels.Length; i++)
         {
-            _secretLevels[i].gameObject.SetActive(_secretLevels[i].RootIsActive);
-
+            //_secretLevels[i].gameObject.SetActive(_secretLevels[i].RootIsActive);
+            _secretLevels[i].TryActivate();
         }
 
     }

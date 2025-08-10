@@ -8,6 +8,8 @@ public class MapCompletion : MonoSingleton<MapCompletion>
 
 
     [SerializeField] private EpisodeScore[] _completionData;
+    [SerializeField] private int _totalScores;
+    public int totalScore { get { return _totalScores; } }
 
     [Serializable]
     public class EpisodeScore
@@ -20,6 +22,10 @@ public class MapCompletion : MonoSingleton<MapCompletion>
     {
         base.Awake();
         Saver<EpisodeScore[]>.TryLoad(filename, ref _completionData);
+        foreach (var episode in _completionData)
+        {
+            _totalScores += episode.score;
+        }
     }
     public bool TryIndex(int id, out Episode ep, out int score)
     {
