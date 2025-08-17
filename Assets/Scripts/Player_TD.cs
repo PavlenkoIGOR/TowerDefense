@@ -13,6 +13,15 @@ namespace TD
 
         public static new Player_TD Instance { get { return Player.Instance as Player_TD; } }
         private static event Action<int> OnGoldUpdate;
+
+        [SerializeField] private UpgradeAsset _upgradeAsset;
+        private new void Awake()
+        {
+            base.Awake();
+            var lvl = Upgrades.GetUpgradeLevel(_upgradeAsset);
+            TakeDmg(-lvl * 5);
+        }
+
         public static void GoldUpdateSubscribe(Action<int> act)
         {
             OnGoldUpdate += act;
@@ -44,5 +53,7 @@ namespace TD
             tower.GetComponentInChildren<SpriteRenderer>().sprite = towerAsset.sprite;
             Destroy(buildSite.gameObject);
         }
+
+
     }
 }

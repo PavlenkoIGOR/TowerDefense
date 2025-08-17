@@ -13,6 +13,7 @@ public class Upgrades : MonoSingleton<Upgrades>
     }
     [SerializeField] private UpgradeSave[] _saves;
     public const string fileName = "upgrades.dat";
+
     public static void BuyUpgrade(UpgradeAsset upgradeAsset)
     {
         foreach (var upgrade in Instance._saves)
@@ -24,13 +25,27 @@ public class Upgrades : MonoSingleton<Upgrades>
             }
         }
     }
+
+    public static int GetTotalCost()
+    {
+        int result = 0;
+        foreach (var upgrade in Instance._saves)
+        {
+            for (int i = 0; i < upgrade.level; i++)
+            {
+                result += upgrade.asset.costByLvl[i];
+            }
+        }
+        return result;
+    }
+
     private new void Awake()
     {
         base.Awake();
         Saver<UpgradeSave[]>.TryLoad(fileName, ref _saves);
     }
 
-public static int GetUpgradeLevel(UpgradeAsset upgradeAsset)
+    public static int GetUpgradeLevel(UpgradeAsset upgradeAsset)
     {
         foreach (var upgrade in Instance._saves)
         {
