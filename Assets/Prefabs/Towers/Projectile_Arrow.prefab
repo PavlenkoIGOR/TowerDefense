@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 698111408356879994}
-  - component: {fileID: 1973022648537310866}
+  - component: {fileID: -4030944265288272300}
   m_Layer: 0
   m_Name: Projectile_Arrow
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 3717026879943741910}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1973022648537310866
+--- !u!114 &-4030944265288272300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1693378308968881343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044fff8ee6d504946b9961a3b1bc4f7c, type: 3}
+  m_Script: {fileID: 11500000, guid: a4892e94bed7c9d4d8cca9f8398f28d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Nickname: 
+  m_Nickname: Arrow
   m_Velocity: 10
   m_Lifetime: 2
   m_Damage: 1

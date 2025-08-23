@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+
 namespace TD
 {
     [CreateAssetMenu]
@@ -18,5 +19,6 @@ namespace TD
         public float radius = 0.14f;
         public int dmg = 1;
         public int gold = 1;
+        public Enemy.ArmorType armorType;
     }
 }

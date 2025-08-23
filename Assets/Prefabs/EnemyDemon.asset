@@ -17,7 +17,9 @@ MonoBehaviour:
   controller: {fileID: 9100000, guid: 45213796f9ebcc84d839ed4049a5e77a, type: 2}
   moveSpeed: 1
   hp: 8
+  armor: 0
   score: 10
   radius: 0.14
   dmg: 3
   gold: 9
+  armorType: 1

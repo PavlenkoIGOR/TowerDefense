@@ -10,10 +10,36 @@ namespace TD
     [RequireComponent(typeof(TD_PatrolController))]
     public class Enemy : MonoBehaviour
     {
+        public enum ArmorType
+        {
+            Base = 0,
+            Magic = 1
+        }
+        private static Func<int, TD_Projectile.DamageType, int, int>[] ArmorDamageFunctions =
+        {
+            (int power, TD_Projectile.DamageType type, int armor) =>
+            {//ArmorType.Base
+                switch(type)
+                {
+                    case TD_Projectile.DamageType.Magic: return power;
+                        default: return Mathf.Max(power-armor, 1);
+                }
+            },
+
+            (int power, TD_Projectile.DamageType type, int armor) =>
+            {//ArmorType.Magic
+                if(TD_Projectile.DamageType.Base == type)
+                {
+                    armor = armor /2;
+                }
+                return Mathf.Max(power-armor, 1);
+            }
+        };
         internal event Action OnEnd;
         [SerializeField] private int _dmg = 1;
         [SerializeField] private int _gold = 1;
         [SerializeField] private int _armor = 1;
+        [SerializeField] private ArmorType _armorType;
         private Destructible _destructible;
 
         private void Awake()
@@ -30,9 +56,9 @@ namespace TD
             Player_TD.Instance.ReduceLife(_dmg);
         }
 
-        public void TakeDmg(int dmg)
+        public void TakeDmg(int dmg, TD_Projectile.DamageType damageType)
         {
-            _destructible.ApplyDamage(Mathf.Max(1, dmg - _armor));
+            _destructible.ApplyDamage(ArmorDamageFunctions[(int)_armorType](dmg, damageType, _armor));
         }
 
         public void GiveGoldForPlayer()
@@ -55,6 +81,7 @@ namespace TD
             _dmg = enemyAss.dmg;
             _armor = enemyAss.armor;
             _gold = enemyAss.gold;
+            _armorType = enemyAss.armorType;
         }
     }
 
