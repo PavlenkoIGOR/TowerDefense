@@ -10,7 +10,7 @@ public class LevelDisplayController : MonoBehaviour
         var score = 1;
         while (score != 0 && drawLevel < _levels.Length) 
         {
-            _levels[drawLevel].Initialize();
+            score = _levels[drawLevel].Initialize();
             drawLevel += 1;
         }
         for (int i = drawLevel; i < +_levels.Length; i++)

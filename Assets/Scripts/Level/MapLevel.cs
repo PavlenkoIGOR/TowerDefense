@@ -1,10 +1,5 @@
 using SpaceShooter;
-using System;
-using System.Data;
-using TD;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class MapLevel : MonoBehaviour
@@ -28,7 +23,7 @@ public class MapLevel : MonoBehaviour
         }
     }
 
-    internal void Initialize()
+    internal int Initialize()
     {
         var score = MapCompletion.Instance.GetEpisodeScore(_episode);
 
@@ -37,6 +32,7 @@ public class MapLevel : MonoBehaviour
         {
             _resultImgs[i].color = Color.white;
         }
+        return score;
     }
 
     void Start()

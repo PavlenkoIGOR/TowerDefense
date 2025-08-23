@@ -38,6 +38,7 @@ public class MainMenu : MonoBehaviour
     public void WarningPanelYes()
     {
         FileHandler.Reset(MapCompletion.filename);
+        FileHandler.Reset(Upgrades.fileName);
         SceneManager.LoadScene(1);
     }
 
