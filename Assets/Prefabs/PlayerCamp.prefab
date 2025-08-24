@@ -139,7 +139,7 @@ MonoBehaviour:
   m_NumLives: 8
   m_Ship: {fileID: 0}
   m_PlayerShipPrefab: {fileID: 0}
-  _gold: 10
+  _gold: 20
   _lives: 100
   _upgradeAsset: {fileID: 11400000, guid: ef05afcd42bd1e64c916f165834951bc, type: 2}
 --- !u!114 &1289363487065442121

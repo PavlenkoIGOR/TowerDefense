@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313991483490416960}
   - component: {fileID: 8950339854288739838}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 4365907343735821375}
   - component: {fileID: 3974525243958817528}
   - component: {fileID: 1577710408933131490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VisualModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 2238596414572553752}
   - component: {fileID: 6247300747109259398}
   - component: {fileID: 4539282181000619306}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyDemon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Nickname: 
   m_Indestructible: 0
   m_HitPoints: 15
+  m_CurrentHitPoints: 0
   m_EventOnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -302,6 +303,9 @@ MonoBehaviour:
   m_FindNewTargetTime: 0
   m_ShootDelay: 0
   m_EvadeRayLength: 0
+  _onEndPath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4539282181000619306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,3 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cd24daf2647f24ca0c3b803b52260f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dmg: 1
+  _gold: 1
+  _armor: 1
+  _armorType: 0

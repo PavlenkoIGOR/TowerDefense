@@ -16,3 +16,4 @@ MonoBehaviour:
   towerGUI: {fileID: 21300000, guid: ef25b92a8e4b2644b8420de820e6c11f, type: 3}
   sprite: {fileID: 21300000, guid: 0d1dc428e29b59d4da665429794be749, type: 3}
   tower: {fileID: 912803448919373950, guid: f19678d2bac0c5f46b1ffc37c8b75488, type: 3}
+  turretProperties: {fileID: 11400000, guid: 1d26442a609fd5b42a73176609dd49fa, type: 2}

@@ -11,6 +11,6 @@ public class TowerAsset : ScriptableObject
     public Sprite towerGUI;
     public Sprite sprite;
     public Tower tower;
-
+    public TurretProperties turretProperties;
 }
 

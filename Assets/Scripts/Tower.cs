@@ -12,6 +12,20 @@ namespace TD
         private Destructible _target = null;
         private static readonly Color GizmoColor = new Color(1, 0, 0, 0.3f);
 
+        public void Use(TowerAsset towerAsset)
+        {
+            GetComponentInChildren<SpriteRenderer>().sprite = towerAsset.sprite;
+            _turrets = GetComponentsInChildren<Turret>();
+            if (_turrets != null)
+            {
+                foreach (var turret in _turrets)
+                {
+                    turret.AssignLoadout(towerAsset.turretProperties);
+                }
+            }
+
+        }
+
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
@@ -23,7 +37,6 @@ namespace TD
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            _turrets = GetComponentsInChildren<Turret>();
             //print($"{_turrets.Length}");
         }
 
@@ -32,7 +45,7 @@ namespace TD
         {
             if (_target)
             {
-                var targetVector  = _target.transform.position - transform.position;
+                var targetVector = _target.transform.position - transform.position;
                 if (targetVector.magnitude <= m_Radius)
                 {
                     foreach (var turret in _turrets)

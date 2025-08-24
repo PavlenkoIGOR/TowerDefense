@@ -50,7 +50,7 @@ namespace TD
         {
             ChangeGold(-towerAsset.gold);
             var tower = Instantiate(t, buildSite.position, Quaternion.identity);
-            tower.GetComponentInChildren<SpriteRenderer>().sprite = towerAsset.sprite;
+            tower.Use(towerAsset);
             Destroy(buildSite.gameObject);
         }
 
