@@ -16,7 +16,7 @@ MonoBehaviour:
   spriteScale: {x: 2, y: 2}
   controller: {fileID: 9100000, guid: 1f741601046cb474fa7cfdbf92eedf34, type: 2}
   moveSpeed: 1
-  hp: 2
+  hp: 8
   armor: 0
   score: 2
   radius: 0.14

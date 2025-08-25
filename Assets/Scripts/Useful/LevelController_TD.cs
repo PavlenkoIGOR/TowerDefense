@@ -30,9 +30,9 @@ public class LevelController_TD : LevelController
         void LifeScoreChange(int _)
         {
             _levelScore -= 1;
-            Player_TD.OnLifeUpdate -= LifeScoreChange;
+            Player_TD.Instance.OnLifeUpdate -= LifeScoreChange;
         }
-        Player_TD.OnLifeUpdate += LifeScoreChange;
+        Player_TD.Instance.OnLifeUpdate += LifeScoreChange;
     }
 
     private void StopLvlActivity()

@@ -182,13 +182,13 @@ MonoBehaviour:
   m_DoNotDestroyOnLoad: 1
   _completionData:
   - episode: {fileID: 11400000, guid: f53100dbbf76b214ab6e6530a8578fbf, type: 2}
-    score: 3
+    score: 0
   - episode: {fileID: 11400000, guid: faf3b7c54cb3b9c4e85d6f1ef1d23b3c, type: 2}
-    score: 3
+    score: 0
   - episode: {fileID: 11400000, guid: 5fbd5e124c83f41468e2ccd886cfa5c1, type: 2}
-    score: 3
+    score: 0
   - episode: {fileID: 11400000, guid: 5be06eee3ea4b044ea9875727e4b3ccc, type: 2}
-    score: 1
+    score: 0
 --- !u!114 &143083947
 MonoBehaviour:
   m_ObjectHideFlags: 0

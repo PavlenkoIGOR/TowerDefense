@@ -16,10 +16,10 @@ public class TextUpdate : MonoBehaviour
         switch (updateSource)
         {
             case UpdateSource.Gold:
-                Player_TD.GoldUpdateSubscribe(UpdateText);
+                Player_TD.Instance.GoldUpdateSubscribe(UpdateText);
                 break;
             case UpdateSource.Lifes:
-                Player_TD.LifeUpdateSubscribe(UpdateText);
+                Player_TD.Instance.LifeUpdateSubscribe(UpdateText);
                 break;
         }
         

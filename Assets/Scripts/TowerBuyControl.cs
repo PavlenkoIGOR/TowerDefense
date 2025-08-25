@@ -39,7 +39,7 @@ public partial class TowerBuyControl : MonoBehaviour
     {
         _towerText.text = _towerAsset.gold.ToString();
         _button.GetComponent<Image>().sprite = _towerAsset.towerGUI;
-        Player_TD.GoldUpdateSubscribe(GoldStatusCheck);
+        Player_TD.Instance.GoldUpdateSubscribe(GoldStatusCheck);
     }
 
     void Update()

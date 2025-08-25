@@ -50,6 +50,10 @@ public class MapCompletion : MonoSingleton<MapCompletion>
             {
                 if (levelScore > item.score)
                 {
+
+                    _totalScores += levelScore - item.score;
+
+
                     item.score = levelScore;
                     Saver<EpisodeScore[]>.Save(filename, _completionData);
                 }

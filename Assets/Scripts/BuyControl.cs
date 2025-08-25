@@ -41,4 +41,8 @@ public class BuyControl : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(worldPos, gizmoRad);
     }
+    private void OnDestroy()
+    {
+        BuildSite.OnClickEvent -= MoveToBuiltSite;
+    }
 }

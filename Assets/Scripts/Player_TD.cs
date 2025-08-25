@@ -12,7 +12,7 @@ namespace TD
         //[SerializeField] private Tower _towerPref;
 
         public static new Player_TD Instance { get { return Player.Instance as Player_TD; } }
-        private static event Action<int> OnGoldUpdate;
+        private event Action<int> OnGoldUpdate;
 
         [SerializeField] private UpgradeAsset _upgradeAsset;
         private new void Awake()
@@ -22,13 +22,13 @@ namespace TD
             TakeDmg(-lvl * 5);
         }
 
-        public static void GoldUpdateSubscribe(Action<int> act)
+        public  void GoldUpdateSubscribe(Action<int> act)
         {
             OnGoldUpdate += act;
             act(Instance._gold);
         }
-        public static event Action<int> OnLifeUpdate;
-        public static void LifeUpdateSubscribe(Action<int> act)
+        public event Action<int> OnLifeUpdate;
+        public  void LifeUpdateSubscribe(Action<int> act)
         {
             OnLifeUpdate += act;
             act(Instance._lives);
