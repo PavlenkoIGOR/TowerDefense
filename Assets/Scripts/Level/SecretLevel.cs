@@ -22,7 +22,7 @@ public class SecretLevel : MonoBehaviour
         
     }
 
-    internal void TryActivate()
+    public void TryActivate()
     {
         gameObject.SetActive(_rootLvl.isComplete); 
 
