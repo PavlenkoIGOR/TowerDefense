@@ -1517,6 +1517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363741535}
   - component: {fileID: 1363741534}
+  - component: {fileID: 1363741536}
   m_Layer: 0
   m_Name: LvllSequenseController
   m_TagString: Untagged
@@ -1552,6 +1553,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1363741536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363741533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3db59b46eb8aad47840edc613acf5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DoNotDestroyOnLoad: 0
+  _saves:
+  - asset: {fileID: 11400000, guid: ef05afcd42bd1e64c916f165834951bc, type: 2}
+    level: 0
+  - asset: {fileID: 11400000, guid: e8e4184446d98874cac152a367d089c7, type: 2}
+    level: 1
 --- !u!1 &1430397379
 GameObject:
   m_ObjectHideFlags: 0

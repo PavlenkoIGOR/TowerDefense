@@ -15,9 +15,9 @@ namespace TD
         private event Action<int> OnGoldUpdate;
 
         [SerializeField] private UpgradeAsset _upgradeAsset;
-        private new void Awake()
+        private void Start()
         {
-            base.Awake();
+
             var lvl = Upgrades.GetUpgradeLevel(_upgradeAsset);
             TakeDmg(-lvl * 5);
         }
