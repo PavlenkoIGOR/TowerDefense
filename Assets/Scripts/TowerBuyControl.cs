@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public partial class TowerBuyControl : MonoBehaviour
 {
     [SerializeField] private TowerAsset _towerAsset;
-    public void SetTowerAsset(TowerAsset ta) { _towerAsset = ta; }
+    
     [SerializeField] private TMP_Text _towerText;
     [SerializeField] private Button _button;
     [SerializeField] private Transform _buildSite;
-    
+
+    public void SetTowerAsset(TowerAsset ta) 
+    { 
+        _towerAsset = ta;
+    }
 
     public void SetBuildSite(Transform value)
     {

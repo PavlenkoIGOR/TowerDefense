@@ -1054,6 +1054,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: buildableTowers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: _buildableTowers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: 'buildableTowers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f5520b542c57d764fa9c55d9e2558c74, type: 2}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: '_buildableTowers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f5520b542c57d764fa9c55d9e2558c74, type: 2}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: '_buildableTowers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 02437762c32f30b40860e272e2dec47b, type: 2}
     - target: {fileID: 4590943034570497100, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
       propertyPath: m_Name
       value: BuildSite (3)
@@ -1409,6 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db879c63e5ff1748a53ebbeef52f617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildableTowers: []
 --- !u!1 &1260556688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,7 +1591,7 @@ MonoBehaviour:
   - asset: {fileID: 11400000, guid: ef05afcd42bd1e64c916f165834951bc, type: 2}
     level: 0
   - asset: {fileID: 11400000, guid: e8e4184446d98874cac152a367d089c7, type: 2}
-    level: 1
+    level: 2
 --- !u!1 &1430397379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,6 +1787,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: _buildableTowers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: '_buildableTowers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f5520b542c57d764fa9c55d9e2558c74, type: 2}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: '_buildableTowers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 02437762c32f30b40860e272e2dec47b, type: 2}
     - target: {fileID: 4590943034570497100, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
       propertyPath: m_Name
       value: BuildSite (1)
@@ -2230,6 +2263,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: _buildableTowers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: '_buildableTowers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f5520b542c57d764fa9c55d9e2558c74, type: 2}
+    - target: {fileID: 4210028915127963273, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
+      propertyPath: '_buildableTowers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 02437762c32f30b40860e272e2dec47b, type: 2}
     - target: {fileID: 4590943034570497100, guid: 7a256e38c71dc414ebcefe0639691d9f, type: 3}
       propertyPath: m_Name
       value: BuildSite (2)
@@ -2361,6 +2406,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3095597551295323592, guid: d586e4843bcff2942a9de89f13b3722c, type: 3}
+      propertyPath: _mageTowerUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: e8e4184446d98874cac152a367d089c7, type: 2}
+    - target: {fileID: 3095597551295323592, guid: d586e4843bcff2942a9de89f13b3722c, type: 3}
+      propertyPath: _towerAssets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095597551295323592, guid: d586e4843bcff2942a9de89f13b3722c, type: 3}
+      propertyPath: '_towerAssets.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f5520b542c57d764fa9c55d9e2558c74, type: 2}
+    - target: {fileID: 3095597551295323592, guid: d586e4843bcff2942a9de89f13b3722c, type: 3}
+      propertyPath: '_towerAssets.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f5520b542c57d764fa9c55d9e2558c74, type: 2}
     - target: {fileID: 5995919610234473827, guid: d586e4843bcff2942a9de89f13b3722c, type: 3}
       propertyPath: m_Pivot.x
       value: 0

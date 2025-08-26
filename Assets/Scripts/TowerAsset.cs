@@ -12,5 +12,17 @@ public class TowerAsset : ScriptableObject
     public Sprite sprite;
     public Tower tower;
     public TurretProperties turretProperties;
+    [SerializeField] private UpgradeAsset requiredUpgrade;
+    [SerializeField] private int requiredUpgradeLevel;
+    public bool isAvailable()
+    {
+        if (requiredUpgrade)
+        {
+           return requiredUpgradeLevel <= Upgrades.GetUpgradeLevel(requiredUpgrade);
+        }
+        else return true;
+    }
+
+    public TowerAsset[] _upgradesTo;
 }
 

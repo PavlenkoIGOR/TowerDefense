@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b41c928fc84261642be7f33c24ba8a5a, type: 3}
-  m_Name: Tower3
+  m_Script: {fileID: 11500000, guid: 6b6e64acad94bf04290563b658f18483, type: 3}
+  m_Name: Turret_magicTower2lvl
   m_EditorClassIdentifier: 
-  gold: 25
-  towerGUI: {fileID: 0}
-  sprite: {fileID: 0}
+  m_Mode: 0
+  m_ProjectilePrefab: {fileID: 0}
+  m_RateOfFire: 0.7
+  m_EnergyUsage: 0
+  m_AmmoUsage: 0
+  m_LaunchSFX: {fileID: 0}

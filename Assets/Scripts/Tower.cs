@@ -23,7 +23,8 @@ namespace TD
                     turret.AssignLoadout(towerAsset.turretProperties);
                 }
             }
-
+            var buildSite = GetComponentInChildren<BuildSite>();
+            buildSite.SetBuildableTowers(towerAsset._upgradesTo);
         }
 
 #if UNITY_EDITOR

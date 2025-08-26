@@ -4,8 +4,6 @@ using UnityEngine;
 public class BuyControl : MonoBehaviour
 {
     [SerializeField] private TowerBuyControl _towerBuyPref;
-    [SerializeField] private TowerAsset[] _towerAssets;
-    [SerializeField] private UpgradeAsset _mageTowerUpgrade;
     private List<TowerBuyControl> _activeControls;
     private RectTransform t;
     public float gizmoRad = 10.0f;
@@ -16,25 +14,35 @@ public class BuyControl : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void MoveToBuiltSite(Transform target)
+    private void MoveToBuiltSite(BuildSite buildSite)
     {
-        if (target)
+        if (buildSite)
         {
-            var position = Camera.main.WorldToScreenPoint(target.position);
+            var position = Camera.main.WorldToScreenPoint(buildSite.transform.root.position);
             t.anchoredPosition = position;
-            gameObject.SetActive(true);
             _activeControls = new List<TowerBuyControl>();
-            for (int i = 0; i < _towerAssets.Length; i++)
+            foreach (var asset in buildSite.buildableTowers)
             {
-
-                if (i != 1 || Upgrades.GetUpgradeLevel(_mageTowerUpgrade) > 0)
+                if (asset.isAvailable())
                 {
                     var newControl = Instantiate(_towerBuyPref, transform);
                     _activeControls.Add(newControl);
-                    newControl.transform.position += Vector3.left * 88 * i;
-                    newControl.SetTowerAsset(_towerAssets[i]);
+                    newControl.SetTowerAsset(asset);
                 }
+            }
 
+            if (_activeControls.Count > 0)
+            {
+                var angle = 360 / _activeControls.Count;
+                for (int i = 0; i < _activeControls.Count; i++)
+                {
+                    var offset = Quaternion.AngleAxis(angle * i, Vector3.forward) * (Vector3.left * 80);
+                    _activeControls[i].transform.position += offset;
+                }
+                foreach (var tbc in GetComponentsInChildren<TowerBuyControl>())
+                {
+                    tbc.SetBuildSite(buildSite.transform.root);
+                }
             }
 
         }
@@ -44,13 +52,10 @@ public class BuyControl : MonoBehaviour
             {
                 Destroy(control.gameObject);
             }
+            _activeControls?.Clear();
             gameObject.SetActive(false);
         }
 
-        foreach (var tbc in GetComponentsInChildren<TowerBuyControl>())
-        {
-            tbc.SetBuildSite(target);
-        }
     }
 
     public void OnDrawGizmosSelected()
@@ -58,7 +63,7 @@ public class BuyControl : MonoBehaviour
         if (t == null)
             t = GetComponent<RectTransform>();
 
-        Vector3 worldPos = t.position; // или преобразуйте из anchoredPosition при необходимости
+        Vector3 worldPos = t.position;
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(worldPos, gizmoRad);
     }
