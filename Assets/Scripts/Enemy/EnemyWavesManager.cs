@@ -10,7 +10,7 @@ public class EnemyWavesManager : MonoBehaviour
     [SerializeField] private EnemyWave _currentWave;
     [SerializeField] private int _activeEnemyCount = 0;
     public event Action OnAllWavesEnd;
-
+    public static event Action<Enemy> OnEnemySpawn;
     void Start()
     {
         _currentWave.Prepare(SpawnEnemies);
@@ -42,7 +42,7 @@ public class EnemyWavesManager : MonoBehaviour
                     e.Use(squad.asset);
                     e.GetComponent<TD_PatrolController>().SetPath(_paths[squad.pathIndex]);
                     _activeEnemyCount++;
-
+                    OnEnemySpawn(e);
                 }
             }
             else

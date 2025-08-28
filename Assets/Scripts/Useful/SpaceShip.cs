@@ -31,7 +31,16 @@ namespace SpaceShooter
         /// Максимальная линейная скорость.
         /// </summary>
         [SerializeField] private float m_MaxLinearVelocity;
-
+        private float _maxLinearVelocityBackUp;
+        public void HalfMaxLinearVelocity()
+        {
+            _maxLinearVelocityBackUp = m_MaxLinearVelocity;
+            m_MaxLinearVelocity /= 2;
+        }
+        public void RestoreMaxLinearVelocity()
+        {
+            m_MaxLinearVelocity = _maxLinearVelocityBackUp;
+        }
         /// <summary>
         /// Максимальная вращательная скорость. В градусах/сек
         /// </summary>

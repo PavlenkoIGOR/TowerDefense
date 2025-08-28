@@ -18,6 +18,8 @@ public class BuyControl : MonoBehaviour
     {
         if (buildSite)
         {
+            gameObject.SetActive(true);
+            print("MoveToBuiltSite");
             var position = Camera.main.WorldToScreenPoint(buildSite.transform.root.position);
             t.anchoredPosition = position;
             _activeControls = new List<TowerBuyControl>();
