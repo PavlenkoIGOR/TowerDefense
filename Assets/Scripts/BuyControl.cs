@@ -50,11 +50,14 @@ public class BuyControl : MonoBehaviour
         }
         else
         {
-            foreach (var control in _activeControls)
+            if (_activeControls != null)
             {
-                Destroy(control.gameObject);
+                foreach (var control in _activeControls)
+                {
+                    Destroy(control.gameObject);
+                }
+                _activeControls?.Clear();
             }
-            _activeControls?.Clear();
             gameObject.SetActive(false);
         }
 
